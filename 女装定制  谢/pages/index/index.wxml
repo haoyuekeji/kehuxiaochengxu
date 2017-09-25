@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container" >
+    <view class="head">
+        <swiper class="banner" autoplay indicator-dots indicator-active-color="#f40000" circular interval="3000" duration="1500">
+            <swiper-item >
+                <image src="../../images/banner1.jpg"></image>
+            </swiper-item>
+             <swiper-item>
+                <image src="../../images/banner2.jpg"></image>
+            </swiper-item> 
+        </swiper>
+        <view  bindtap="link" class='button'>联系购买</view>
+    </view>
+    <view class="images">
+        <navigator url="../details/details?imgurl={{item.imgurl}}&&price={{item.price}}&&con={{item.con}}" wx:for="{{cons}}" wx:key="index" >
+            <view class="img" >
+                <image src="{{item.imgurl}}" ></image>
+            </view>
+            <view class='images-con'>{{item.con}}</view>
+            <text>￥{{item.price}}</text>
+        </navigator> 
+    </view>
+
+</view>

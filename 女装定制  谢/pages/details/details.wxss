@@ -1,0 +1,56 @@
+/* details.wxss */
+.banner{
+    height: 400rpx; 
+    width: 100%;
+}
+.banner image{
+    height: 400rpx; 
+    width: 100%;
+}
+.body{
+    height: auto;
+    width: 100%;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+}
+.con{
+    font-size: 30rpx;
+}
+.price-con{
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.price-now{
+    color:#f40000;
+    font-weight: bold;
+    font-size: 20px;
+}
+.button{
+    height: 60rpx;
+    width: 60%;   
+    font-size: 35rpx;
+    color:#ffffff;
+    background: #000;
+    margin-top: 20rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+.img{
+    margin-top: 20rpx;
+    padding: 10rpx 0;
+    background: #ffffff;
+
+}
+.img image{
+    height: 750rpx;
+    width: 750rpx;
+}
+.text{
+    margin-top: 30rpx;
+    font-size: 25rpx;
+    color:#999;
+}

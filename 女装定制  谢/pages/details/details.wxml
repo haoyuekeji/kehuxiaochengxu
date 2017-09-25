@@ -1,0 +1,17 @@
+<!--details.wxml-->
+<view class="container">
+    <view class="img" wx:if="{{imgurl}}">
+        <image src="{{imgurl}}"></image>
+    </view>  
+    <view class="body">
+        <view class="con">
+            {{con}}
+        </view>
+        
+        <view class="price-con">
+            <text class="price-now">￥{{price}}</text>
+        </view>
+    </view>
+    <view  bindtap="link" class='button'>联系购买</view>
+    <view class="text">后台数据完成，此处往下皆为可编辑宝贝详情</view>
+</view>

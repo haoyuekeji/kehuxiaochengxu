@@ -1,0 +1,66 @@
+/**index.wxss**/
+page{
+     background: #f2f2f2;
+}
+.head{
+    height: auto;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 35rpx;
+    position: fixed;
+    left:0;
+    top: 0;
+}
+.banner{
+    height: 400rpx; 
+    width: 100%;
+}
+.banner image{
+    height: 400rpx; 
+    width: 100%;
+}
+.button{
+    height: 60rpx;
+    width: 60%;   
+    font-size: 35rpx;
+    color:#ffffff;
+    background: #000;
+    margin-top: 50rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+.button:active{
+    opacity: 0.9;
+    background: #0261ef;
+    color:#f0f0f0;
+}
+.images{
+    margin-top: 545rpx;
+    padding-top: 25rpx ;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+}
+navigator{
+    height: auto;
+    width: 360rpx;
+    padding:  15rpx 0;
+    float: left;
+    margin-left: 10rpx;
+}
+.images-con{
+    font-size: 25rpx;
+}
+.img image{
+    height:360rpx;
+    width: 360rpx;
+}
+navigator text{
+   font-size: 25rpx;
+   color:#f40000;
+}
