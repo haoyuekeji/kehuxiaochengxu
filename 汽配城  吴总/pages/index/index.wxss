@@ -1,0 +1,119 @@
+/**index.wxss**/
+
+page {
+    background: #f2f2f2;
+}
+
+.head {
+    height: auto;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 35rpx;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.banner {
+    height: 400rpx;
+    width: 100%;
+}
+
+.banner image {
+    height: 400rpx;
+    width: 100%;
+}
+
+.button {
+    height: 60rpx;
+    width: 60%;
+    font-size: 35rpx;
+    color: #fff;
+    background: #000;
+    margin-top: 50rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.button:active {
+    opacity: 0.9;
+    background: #0261ef;
+    color: #f0f0f0;
+}
+
+.images {
+    margin-top: 525rpx;
+    padding-top: 25rpx;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+navigator {
+    height: auto;
+    width: 360rpx;
+    padding: 15rpx;
+    float: left;
+    margin-left: 10rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.images-con {
+    font-size: 30rpx;
+    height: 60rpx;
+    width: 100%;
+    color: #333;
+    line-height: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.img image {
+    width: 100%;
+}
+
+.img image {
+    width: 330rpx;
+}
+
+navigator text {
+    font-size: 30rpx;
+    color: #000;
+}
+
+.thumbsup {
+    color: #c40000;
+}
+
+.judge {
+    height: auto;
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15rpx;
+    margin-top: 20rpx;
+    box-sizing: border-box;
+    line-height: 25rpx;
+    float: right;
+}
+
+.judge image {
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 10rpx;
+}
+
+.logo-text {
+    color: #999;
+    font-size: 30rpx;
+    align-self: center;
+    margin-top: 15rpx;
+}

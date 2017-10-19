@@ -13,6 +13,7 @@ Page({
         pin_stu: true,
         inp_stu: true,
         auto_focus: false,
+        show_pin: false,
         nav: [
             "详情",
             "评论"
@@ -84,6 +85,9 @@ Page({
     thumbsup: function (res) {
         const that = this;
         const openid = wx.getStorageSync('openid');
+        wx.showLoading({
+            title: '',
+        })
         wx.request({
             url: localhost + '/seller/pro/thumbs-up',
             data: {
@@ -91,68 +95,58 @@ Page({
                 openId: openid
             },
             success: function (res) {
+                wx.hideLoading();
                 let stu = that.data.stu;
                 const stu_ = !stu;
-                that.setData({
-                    stu: stu_
-                })
                 res.data.message === "操作成功" ? wx.showToast({
                     icon: 'success',
                     duration: 1000
                 }) : wx.showToast({
-                    title: '已经赞过了呦！',
+                    title: res.data.message,
                     image: '../../images/fail.png',
                     duration: 1000
+                });
+                that.setData({
+                    stu: stu_
                 })
             }
         })
     },
     link: function () {
-        if (!wx.makePhoneCall) {
-            wx.showModal({
-                title: '提示',
-                content: '添加 xzq67777 为好友购买！',
-                success: function (res) {
-                    if (res.confirm) {
+        wx.showModal({
+            title: '微信号',
+            content: '点击确定复制微信号 WGF498694059 加好友联系吧！',
+            success: function (res) {
+                if (res.confirm) {
+                    if (wx.setClipboardData) {
                         wx.setClipboardData({
-                            data: 'bqrz9888',
-                            success: function () {
+                            data: 'WGF498694059',
+                            success: function (res) {
                                 wx.showModal({
                                     title: '提示',
-                                    content: '操作成功！',
+                                    content: '复制成功！',
                                 })
                             }
                         })
+                    } else {
+                        // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+                        wx.showModal({
+                            title: '提示',
+                            content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+                        })
                     }
                 }
-            })
-        } else {
-            wx.makePhoneCall({
-                phoneNumber: '13375179823',
-                fail: function () {
-                    wx.showModal({
-                        title: '提示',
-                        content: '添加 bqrz9888 为好友购买！',
-                        success: function (res) {
-                            if (res.confirm) {
-                                wx.setClipboardData({
-                                    data: 'bqrz9888',
-                                    success: function () {
-                                        wx.showModal({
-                                            title: '提示',
-                                            content: '操作成功！',
-                                        })
-                                    }
-                                })
-                            }
-                        }
-                    })
-                }
-            })
-        }
-
+            }
+        })
     },
     scroll_img: function () {
+        if (!wx.pageScrollTo) {
+            wx.showModal({
+                title: '提示',
+                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。',
+            });
+            return false
+        }
         wx.pageScrollTo({
             scrollTop: 0
         })
@@ -175,7 +169,6 @@ Page({
             });
         } else {
             that.getRect('.images', function (data) {
-
                 wx.pageScrollTo({
                     scrollTop: data + 700
                 })
@@ -184,7 +177,6 @@ Page({
     },
     getRect: function (dom, cb) {
         wx.createSelectorQuery().select(dom).boundingClientRect(function (rect) {
-
             cb(rect.height)      // 节点的上边界坐标
         }).exec()
     },
@@ -252,6 +244,12 @@ Page({
             },
             success: function (res) {
                 const content = res.data.data.content;
+
+                if (content.length === 0) {
+                    that.setData({
+                        show_pin: true
+                    })
+                }
                 const con = [];
                 for (let i = 0; i < content.length; i++) {
                     con.push({
@@ -307,11 +305,11 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        const pid = this.data.pid;
-        const cons = this.data.con;
+        const title = this.data.con;
+        const that = this;
         return {
-            title: cons,
-            path: '/pages/details/details?id=' + pid
+            title: "华涛车业美容" +" "+ title,
+            path: '/pages/details/details?id=' + that.data.pid
         }
     }
 })

@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="head">
+        <swiper class="banner" autoplay indicator-dots="{{indicator}}" indicator-active-color="#f40000" circular interval="3000" duration="1500">
+            <swiper-item wx:for="{{BannerList}}" wx:key="index">
+                <image src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view bindtap="link" class='button'>联系购买</view>
+    </view>
+    <view class="images">
+        <navigator url="../details/details?id={{item.id}}" wx:for="{{cons}}" wx:key="index">
+            <view class="img">
+                <image src="{{item.imgurl}}" mode='widthFix'></image>
+            </view>
+            <view class='images-con'>{{item.con}}</view>
+            <text>￥{{item.price}}</text>
+            <!-- <view class="judge">
+                <image src='../../images/zan.png'></image>
+                <text class='thumbsup'>{{item.thumbsup}}</text>
+            </view> -->
+        </navigator>
+    </view>
+    <view class='logo-text'>@苏州皓月网络科技提供技术支持</view>
+</view>

@@ -8,18 +8,26 @@ App({
     },
 
     getUserInfo: function (cb) {
-        var that = this
+        var that = this;
+        //店铺浏览量
+        wx.request({
+            url: that.localhost.localhost + '/dictionary/addViews',
+            data: {
+                sellerId: that.token.token
+            }
+        })
         wx.login({
+            //获取code
             success: function (res) {
+                //获取openID
                 wx.request({
                     url: that.localhost.localhost + '/customer/getSessionKey',
                     data: {
                         appId: that.appid.appid,
                         code: res.code,
-                        secret: "feed7be26e90326260626ca8ca9c2560"
+                        secret: "e2973dbe9e60a81d80e2bfc3e9d2549f"
                     },
                     success: function (res) {
-                  
                         const openid = JSON.parse(res.data.data).openid;
                         //客户首次访问店铺
                         wx.request({
@@ -34,13 +42,6 @@ App({
                             url: that.localhost.localhost + '/dictionary/addVisitors',
                             data: {
                                 openId: openid,
-                                sellerId: that.token.token
-                            }
-                        })
-                        //店铺浏览量
-                        wx.request({
-                            url: that.localhost.localhost + '/dictionary/addViews',
-                            data: {
                                 sellerId: that.token.token
                             }
                         })
@@ -69,10 +70,10 @@ App({
         localhost: 'https://www.cslapp.com'
     },
     token: {
-        token: 3
+        token: 4
     },
     appid: {
-        appid: 'wx27fc42ba66818c15'
+        appid: 'wx0ba455a71329361b'
 
     }
 })

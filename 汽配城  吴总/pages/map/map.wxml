@@ -1,0 +1,4 @@
+<view class="container">
+    <view class='button' bindtap='link'>点击拨打电话 13773036787</view>
+    <map longitude="120.803180" latitude='31.634670' markers="{{markers}}"></map>
+</view>

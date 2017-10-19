@@ -1,12 +1,13 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/details/details"
+        "pages/details/details",
+        "pages/map/map"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "女装私人定制一姐店",
+        "navigationBarTitleText": "华涛车业美容",
         "navigationBarTextStyle": "black"
     }
 }

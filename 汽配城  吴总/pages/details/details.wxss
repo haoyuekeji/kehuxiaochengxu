@@ -1,12 +1,5 @@
 /* details.wxss */
 
-.container {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
 .body {
     height: 180rpx;
     width: 100%;
@@ -31,7 +24,7 @@
 }
 
 .price-now {
-    color: #f40000;
+    color: #000;
     font-weight: bold;
     font-size: 20px;
 }
@@ -145,7 +138,7 @@
 
 .logo-text {
     color: #999;
-    font-size: 25rpx;
+    font-size: 30rpx;
     align-self: center;
     margin-bottom: 15rpx;
 }
@@ -211,7 +204,6 @@
 
 .introduction {
     font-size: 25rpx;
-    margin-top: 15rpx;
 }
 
 .introduction-top {
