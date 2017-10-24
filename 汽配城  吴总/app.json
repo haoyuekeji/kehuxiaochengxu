@@ -2,12 +2,13 @@
     "pages": [
         "pages/index/index",
         "pages/details/details",
-        "pages/map/map"
+        "pages/map/map",
+        "pages/banner/banner"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "华涛车业美容",
+        "navigationBarTitleText": "华涛车业",
         "navigationBarTextStyle": "black"
     }
 }

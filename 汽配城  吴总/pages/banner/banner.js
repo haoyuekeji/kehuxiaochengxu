@@ -200,7 +200,7 @@ Page({
         wx.request({
             url: localhost + '/seller/pro/findOne',
             data: {
-                pid: options.id,
+                pcode: options.id,
                 token: token
             },
             success: function (res) {
@@ -250,6 +250,7 @@ Page({
             },
             success: function (res) {
                 const content = res.data.data.content;
+
                 if (content.length === 0) {
                     that.setData({
                         show_pin: true

@@ -23,6 +23,19 @@ Page({
             url: '../map/map',
         })
     },
+    banner: function (e) {
+        const that = this
+        const index = e.target.dataset.index
+        const banner_navlist = that.data.banner_nav.split(',')
+        if (banner_navlist[index] !== '') {
+            wx.navigateTo({
+                url: '../banner/banner?id=' + banner_navlist[index],
+            })
+        } else {
+            return false
+        }
+
+    },
     onLoad: function () {
         var that = this
         //调用应用实例的方法获取全局数据
@@ -52,7 +65,7 @@ Page({
                 for (let i = 0; i < content.length; i++) {
                     var imgurl = content[i].indexImages.split(',')[0];
                     var con = content[i].pname;
-                    var price = content[i].produtsTypes[0].priceNew;
+                    var price = content[i].produtsTypes[0].discountPrice;
                     var id = content[i].id;
                     content[i].thumbsup !== null ? thumbsup = content[i].thumbsup : thumbsup = 0
                     cons.push(
@@ -68,14 +81,15 @@ Page({
                 }
                 that.setData({
                     BannerList: BannerList,
-                    cons: cons
+                    cons: cons,
+                    banner_nav: data.data.data[3]
                 });
             }
         })
     },
     onShareAppMessage: function () {
         return {
-            title: '华涛车业美容',
+            title: '华涛车业',
             path: '/pages/index/index'
         }
     }
