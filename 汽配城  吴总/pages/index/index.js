@@ -3,6 +3,7 @@
 const app = getApp();
 const token = app.token.token;
 const localhost = app.localhost.localhost;
+var pageSize = 20;
 Page({
     data: {
         cons: '',
@@ -48,15 +49,20 @@ Page({
     },
     onShow: function () {
         const that = this;
+        wx.showLoading({
+            title: '加载中',
+        })
         wx.request({
             url: localhost + '/seller/index',
             data: {
                 token: token,
-                pageSize: 20,
+                pageSize: pageSize,
                 active: true
             },
             success: function (data) {
                 const BannerList = data.data.data[0].split(',');
+                const cons_ = that.data.cons
+                let cons_num = 0
                 BannerList.pop();
                 BannerList.length <= 1 ? that.setData({ indicator: false }) : that.setData({ indicator: true })
                 const cons = [];
@@ -79,13 +85,37 @@ Page({
                         }
                     )
                 }
-                that.setData({
-                    BannerList: BannerList,
-                    cons: cons,
-                    banner_nav: data.data.data[3]
-                });
+
+                if (cons_ !== '' && cons_.length === cons.length) {
+                    const cons_ = that.data.cons
+                    cons.forEach(function (val, key) {
+                        if (val.id === cons_[key].id) {
+                            cons_num++
+                        }
+                    })
+                }
+                cons_num > 0 ? pageSize -= 20 :
+                    that.setData({
+                        BannerList: BannerList,
+                        cons: cons,
+                        banner_nav: data.data.data[3]
+                    });
+                pageSize <= 20 ? pageSize = 20 : ''
+                setTimeout(function () {
+                    wx.hideLoading()
+                }, 500)
+                wx.stopPullDownRefresh()
             }
         })
+    },
+    onPullDownRefresh: function () {
+        pageSize += 20
+        this.onShow()
+    },
+
+    onReachBottom: function () {
+        pageSize += 20
+        this.onShow()
     },
     onShareAppMessage: function () {
         return {

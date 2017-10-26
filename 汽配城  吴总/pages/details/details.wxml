@@ -86,6 +86,6 @@
         {{item}}
     </view>
     <view bindtap='scroll_home'>
-        主页
+        返回
     </view>
 </view>

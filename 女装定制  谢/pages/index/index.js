@@ -144,7 +144,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title: '女装私人定制一姐店',
-            path: '../index/index'
+            path: '/pages/index/index'
         }
     },
     onReachBottom: function () {
